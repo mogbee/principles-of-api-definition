@@ -3,6 +3,7 @@
 ## Never do case sensitive.
 
 WWW is not a case sensitive world.
+
 URLs are case insensitive.
 
 It is only confusing to distinguish upper case letters and lower case letters from users in the world of WWW.
