@@ -1,4 +1,4 @@
-# Principle of API definition.
+# Principles of API definition.
 
 ## Never do case sensitive.
 
