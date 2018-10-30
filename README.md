@@ -17,18 +17,17 @@ Even if there are special reasons, "Snake case" should be used.
 public class MyApplication {
 
     @POST
-    @Path("getMovie")
-    @Produces("application/x-www-form-urlencoded")
-    public JSON getMovie(@FormParam("movieId") Integer movieId) {
+    @Path("CreateMovie")
+    public JSON createMovie() {
     }
 }
 
 // good
 public class MyApplication {
 
-    @GET
-    @Path("movies/{movieId}")
-    public JSON getMovie(@PathParam("movieId") Integer movieId) {
+    @POST
+    @Path("create_movie")
+    public JSON createMovie() {
     }
 }
 ```
@@ -134,6 +133,31 @@ Also, when developing additional APIs, it is useful to rule out that it is an ob
     "movie": {
         "id": 1,
         "name": "STAR WARS"
+    }
+}
+```
+
+## Never use same name as HTTP method.
+
+If you want to get resources, set get method of HTTP as get and do not include get in url.
+
+```
+// bad
+public class MyApplication {
+
+    @POST
+    @Path("getMovie")
+    @Produces("application/x-www-form-urlencoded")
+    public JSON getMovie(@FormParam("movieId") Integer movieId) {
+    }
+}
+
+// good
+public class MyApplication {
+
+    @GET
+    @Path("movies/{movieId}")
+    public JSON getMovie(@PathParam("movieId") Integer movieId) {
     }
 }
 ```
