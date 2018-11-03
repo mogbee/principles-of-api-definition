@@ -162,6 +162,24 @@ public class MyApplication {
 }
 ```
 
+## Never POST session values.
+
+There are many times when you issue a session with a deadline after authenticating a user, but do not include the session that you issued in the POST data of each API.
+
+To include it in POST data requires that all APIs that are subject to authentication be set to POST.
+
+Sessions should be constrained to be included in cookies or in their own HTTP headers.
+
+```
+// bad
+curl -X POST -d '{"session_id":"value"}' https://api.domain/model/show
+curl -X POST -d '{"session_id":"value", "name": "model"}' https://api.domain/model/create
+
+// good
+curl -X GET -H "Cookie: session_id=value" https://api.domain/model/show
+curl -X POST -H "Cookie: session_id=value" -d '{"name": "model"}' https://api.domain/model/create
+```
+
 To be continued.
 
 Thanks!
