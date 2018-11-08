@@ -137,6 +137,44 @@ Also, when developing additional APIs, it is useful to rule out that it is an ob
 }
 ```
 
+## Never abbreviate.
+
+The interface should not make people using it astray.
+
+Classes and method names are said to be hard to understand if it is too long, but keys included in API responses should be longer than short.
+
+By the way, I think that if you have time to think about shortening classes and method names, you can be long.
+
+If it is short, the user may look at the manual or the README, but if the meaning can be understood at least for a long time, the creator does not have to prepare the manual or the README in detail.
+
+```
+// bad
+{
+    "smp": {
+        "kind": 1, // What is kind?
+        "number": "080-xxxx-xxxx"
+    },
+    "dropped_location": {
+        "lat": 28.123456,
+        "lng": 125.123456
+    }
+}
+
+// good
+{
+    "smartphone": {
+        "career": "xxx",
+        "color": "black",
+        "inch": 6,
+        "number": "080-xxxx-xxxx"
+    },
+    "dropped_location": {
+        "latitude": 28.123456,
+        "longitude": 125.123456
+    }
+}
+```
+
 ## Never use same name as HTTP method.
 
 If you want to get resources, set get method of HTTP as get and do not include get in url.
